@@ -75,7 +75,9 @@ async def handle_bucket_change(event):
     res = get_normality_analysis_detail_mock(window.segment_id, selected_bucket)
 
     qq_plot = document.querySelector("#qq_plot")
-    qq_plot.innerHTML = res['qq-graph']
+
+    iframe_doc = qq_plot.contentDocument or qq_plot.contentWindow.document;
+    iframe_doc.body.innerHTML = res['qq-graph']
 
 
 # this only mockup to help create the UI
@@ -141,9 +143,14 @@ def get_analysis_mock():
 def get_normality_analysis_detail_mock(grouping_id, bucket_id):
   return {
     'qq-graph': f"""
-        <html>
-            <h1>QQ Plot for {grouping_id} - {bucket_id}</h1>
-        </html>
+       <!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h2>Q-Q Plot for Segment {grouping_id} and Bucket {bucket_id}</h2>
+</body>
+</html> 
     """,
     'shapiro_statistic': 243,
     'shapiro_pvalue': 0.43343,

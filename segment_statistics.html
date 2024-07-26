@@ -39,17 +39,6 @@
                 <div id="result_section" class="pt-4" style="display: none;">
                     <h3 class="mb-5">Top 5 Best Segmentation Results using ANOVA</h3>
                     <div id="results_list" class="d-flex flex-column align-items-center">
-                        <!-- <div class="card my-3" style="width: 40rem">
-                            <div class="card-body">
-                                <h4>{i + 1}. Possible Segment {result['grouping_id']}</h4>
-                                <p><strong>ANOVA results:</strong></p>
-                                <p>Statistics: {result['anova_statistic']}<br>P-Value: {result['anova_p']}</p>
-                                <div class="d-flex justify-content-between">
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailed_analysis_modal" data-segment-id="1" py-click="show_detailed_analysis">Detailed Analysis</button>
-                                    <button class="btn btn-secondary">Download segmented excel file</button>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -78,7 +67,11 @@
                             <p>Normality test results will be shown here.</p>
                             <select class="form-select" id="bucket_select">
                             </select>
-                            <div id="qq_plot mt-2"></div>
+                            <iframe
+                                id="qq_plot"
+                                class="w-100 mt-5"
+                            ></iframe>
+
                         </div>
                         <div class="tab-pane fade" id="anova" role="tabpanel">
                             <p>ANOVA test results will be shown here.</p>
