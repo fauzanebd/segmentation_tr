@@ -1,4 +1,4 @@
 {
-  "packages": ["pandas", "openpyxl"],
+  "packages": ["pandas", "openpyxl", "scipy"],
   "experimental_create_proxy": "auto"
 }
